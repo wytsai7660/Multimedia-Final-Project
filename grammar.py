@@ -43,4 +43,4 @@ if __name__ == "__main__":
         print(f"Usage: {sys.argv[0]} <INPUT_STRING>")
         sys.exit(1)
 
-    main(sys.argv[1])
+    print(main(sys.argv[1]))
