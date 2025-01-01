@@ -15,3 +15,25 @@ The project is divided into three parts:
 - Automatic Speech Recognition (ASR)
 - Grammar Correction
 - Text to Speech (TTS)
+
+## Usage
+
+Since the computation may be heavy, we recommend distributing these three parts to different machines. You can do this using [ngrok](https://ngrok.com/) (which is how we do it).
+
+1. (ngrok) Run `ngrok http <port_number>`, remember the URL.
+
+2. Install the required packages.
+
+3. (Only required for grammar correction) Create a `.env` file in the project root with the following content.
+
+    ```text
+    OPENROUTER_API_KEY = <your_openrouter_api_key>
+    ```
+
+4. Run the desired API script on the corresponding machine.
+
+    | Function                     | Script           |
+    |------------------------------|------------------|
+    | Automatic Speech Recognition | `asr_api.py`     |
+    | Grammar Correction           | `grammar_api.py` |
+    | Text to Speech               | `tts_api.py`     |
