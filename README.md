@@ -12,6 +12,6 @@ Our project aims to correct these extremely rare errors and reconstruct the plea
 
 The project is divided into three parts:
 
-- Text to Speech (TTS)
+- Automatic Speech Recognition (ASR)
 - Grammar Correction
-- Speech to Text (STT)
+- Text to Speech (TTS)
