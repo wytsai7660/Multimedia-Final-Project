@@ -5,7 +5,11 @@ import requests
 from dotenv import get_key
 
 
-def main(input: str):
+def main(input: str) -> str:
+    OPENROUTER_API_KEY = get_key(".env", "OPENROUTER_API_KEY")
+    if OPENROUTER_API_KEY == None:
+        sys.exit(1)
+
     response = requests.post(
         url="https://openrouter.ai/api/v1/chat/completions",
         headers={
@@ -31,16 +35,12 @@ def main(input: str):
             }
         ),
     )
-    print(response.json()["choices"][0]["message"]["content"])
+    return response.json()["choices"][0]["message"]["content"]
 
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         print(f"Usage: {sys.argv[0]} <INPUT_STRING>")
-        sys.exit(1)
-
-    OPENROUTER_API_KEY = get_key(".env", "OPENROUTER_API_KEY")
-    if OPENROUTER_API_KEY == None:
         sys.exit(1)
 
     main(sys.argv[1])
